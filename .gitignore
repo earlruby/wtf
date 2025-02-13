@@ -4,6 +4,7 @@
 
 # ignore the virtualenv stuff
 .Python
+pyvenv.cfg
 bin/*
 build/*
 include/*
