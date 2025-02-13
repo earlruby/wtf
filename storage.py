@@ -33,7 +33,7 @@ class mockRedis(object):
     return self.keystore.get(name1, {}).keys()
 
 DEBUG = None
-    
+
 mock = mockRedis()
 def get_connection():
   global DEBUG
@@ -43,14 +43,14 @@ def get_connection():
       r.ping()
       DEBUG = False
     except:
-      print "Redis connection failed, using DEBUG mode"
+      print("Redis connection failed, using DEBUG mode")
       DEBUG = True
       return mock
   if DEBUG:
     return mock
   else:
     return redis.Redis()
-    
+
 
 def get_def(name):
   name = name.lower()
@@ -80,10 +80,10 @@ def failed_lookup(name):
 
 if __name__ == "__main__":
   DEBUG = True
-  print get_def("nothing") == None
+  print (get_def("nothing") == None)
   set_def("test", {"test": 1})
-  print get_def("test")["test"] == 1
+  print (get_def("test")["test"] == 1)
   set_def("test", {"test": 2})
-  print get_def("test")["test"] == 2
+  print (get_def("test")["test"] == 2)
   set_def("test2", {"test": 0})
-  print get_all_def()
+  print (get_all_def())

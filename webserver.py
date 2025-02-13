@@ -9,7 +9,7 @@ import markdown
 from flask import Flask, url_for, request
 app = Flask(__name__)
 
-logging.basicConfig(filename='d-fine.log', level=logging.DEBUG)
+logging.basicConfig(filename='wtf.log', level=logging.DEBUG)
 
 def parse_request():
   word = request.args.get("word", None)
@@ -71,7 +71,7 @@ def add_def():
     if not found:
       return json.dumps({
         "status": "error",
-        "message": "the def '%s' was not found" % pos 
+        "message": "the def '%s' was not found" % pos
       })
 
   storage.set_def(word, data)
