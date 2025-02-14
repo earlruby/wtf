@@ -23,6 +23,18 @@ Open http://localhost:5000/ in a browser to view the application.
 
 Note: WTF *will* work without Redis, but all the data be lost on each restart.
 
+## Building a WTF container
+
+To build a container for running WTF:
+<pre>
+    docker build -f Dockerfile -t wtf .
+</pre>
+
+To run the container:
+<pre>
+    docker run --rm -it -p 5000:5000 --network host wtf
+</pre>
+
 ## Why [Saul](https://github.com/scommab) built [this](https://github.com/scommab/d-fine)
 
 Two reasons:
@@ -49,6 +61,7 @@ was migrated and preserved. It was far too valuable to be lost.
 
 ### TODO
 
+* Fix the "All" button.
 * Switch back to using cdnjs.com for the javascript files
 * Fix the date/time
 * Maybe add a fall back to a standard dictionary site
